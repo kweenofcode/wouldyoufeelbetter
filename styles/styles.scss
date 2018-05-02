@@ -1,0 +1,104 @@
+@import "setup";
+@import "utils";
+@import "typography";
+@import "header";
+
+body {
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($gold, 30) 30%), url('../images/old_moon_@2X.jpg');
+}
+.wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+  height: 100vh;
+}
+.main-content {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+.main-header {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+span {
+  display: block;
+}
+.main-content {
+  display: flex;
+  width: 100%;
+  height: 40vh;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 200px;
+}
+.arrow {
+  position: absolute;
+  bottom: 0; 
+  opacity: 0.7;
+
+}
+.arrow-1 {
+  top: 200px;
+  left: 280px;
+  transform: rotateX(180deg);
+  
+}
+.arrow-2 {
+  top: -100px;
+  left: -120px;
+  transform: rotateX(0) rotateY(180deg);
+}
+.options {
+  right: 100px;
+  flex: 0 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.options__image {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  right: 0;
+  z-index: -1;
+  height: 400px;
+  width: 400px; 
+  background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.questions {
+  flex: 0 0 auto;
+  display: flex;
+  text-align: center;
+}
+.list {
+  list-style: none;
+  position: absolute;
+  // opacity: 0;
+}
+.question__option {
+  position: absolute;
+  margin: 0;
+  &--first {
+    left: -210px;
+    top: -100px;
+  }
+  &--second {
+    right: -550px;
+    top: 350px;
+  }
+  &--third {
+    bottom: -550px;
+    left: -100px;
+    // opacity: 0;
+  }
+}
+.hl {
+  font-weight: 700;
+  line-height: 3;
+}
+input[type=radio] {
+  display: none;
+}
