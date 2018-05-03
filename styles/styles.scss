@@ -14,6 +14,11 @@
 }
 .card {
   background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($gold, 30) 30%), url('../images/old_moon_@2X.jpg');
+  &.question-card {
+  position: absolute;
+  right: 100%;
+  width: 100%;
+  // z-index: 20;
 }
 .wrapper {
   max-width: 1500px;
@@ -57,7 +62,7 @@ span {
   position: relative;
   display: flex;
   flex-direction: column;
-  z-index: 20;
+  // z-index: 20;
 }
 .options__image {
   position: absolute;
@@ -84,7 +89,7 @@ span {
 .question__option {
   position: absolute;
   margin: 0;
-  z-index: 20;
+  // z-index: 10;
   &--first {
     left: -210px;
     top: -100px;
@@ -105,12 +110,4 @@ span {
 }
 input[type=radio] {
   display: none;
-}
-.question-card {
-  position: absolute;
-  right: 100%;
-  width: 100%;
-  &:first-child {
-    right: 50%;
-  }
 }

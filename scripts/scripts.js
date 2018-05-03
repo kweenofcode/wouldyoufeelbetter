@@ -9,7 +9,6 @@ app.getAnswer = function() {
     const answer = $('input[type=radio]:checked').val();
     app.answersArray.push(answer);
   });
-  app.moveToNextPage(app.answersArray);  
   }
 
 app.body = {
@@ -71,6 +70,16 @@ app.numberPages = function(array, object) {
 }
 // Function to call up next question 
 
+app.number = 0;
+
+app.movePages = function() {app.answer.on('click', function(){
+    $(`.card.question-card.question${app.number}`).css('right', '-100%');  
+    app.number = app.number + 1;
+    $(`.card.question-card.question${app.number}`).css({'right': 0, 'top':0});
+    console.log(`$('.card.question${app.number}')`);
+  });
+}
+
 // One function to rule them all
 app.init = function() {
   app.replaceQuestion(app.hairQuestions, app.body.hair);
@@ -78,9 +87,10 @@ app.init = function() {
   app.replaceQuestion(app.presentationQuestions, app.body.presentation);
   app.replaceQuestion(app.physicalTraitsQuestions, app.body.physicalTraits);  
   app.replaceOrderedQuestion(app.orderedQuestions, app.ordered);
-  app.getAnswer();
   app.numberPages(app.pageNumbers, app.pageHeadings);
   app.numberQuestions(app.cards, app.shuffledPages);
+  app.getAnswer();
+  app.movePages();
 }
 $(app.init);
 
