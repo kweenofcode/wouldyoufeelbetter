@@ -3,13 +3,22 @@ html {
 }
 .header-1 {
   font-family: $main-font;
+  position: absolute;
   font-size: 4rem;
   text-align: right;
-  color: $burgundy;
+  left: 11%;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 20px 0;
+  color: $charcoal;
+  padding: 0;
 }
 .header-2 {
   font-family: $third-font; 
-  font-size: 5rem; 
+  font-size: 8rem; 
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.4;
