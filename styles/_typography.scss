@@ -6,10 +6,8 @@ html {
   position: absolute;
   font-size: 4rem;
   text-align: right;
-  left: 11%;
   top: 0;
   bottom: 0;
-  height: 100vh;
   display: flex;
   flex-flow: column wrap;
   margin: 20px 0;
@@ -22,6 +20,7 @@ html {
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.4;
+  width: 80%;
 }
 .option {
   font-size: 5rem;

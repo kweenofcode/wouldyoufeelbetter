@@ -3,8 +3,23 @@
 @import "typography";
 @import "header";
 
-body {
+.card-wrapper {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.card {
   background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($gold, 30) 30%), url('../images/old_moon_@2X.jpg');
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
 }
 .wrapper {
   max-width: 1500px;
