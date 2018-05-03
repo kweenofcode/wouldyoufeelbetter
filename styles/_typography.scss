@@ -2,12 +2,13 @@ html {
   font-size: 62.5%;
 }
 .header-1 {
-  font-family: $main-font;
+  font-family: $second-font;
+  font-weight: 700;
   position: absolute;
-  font-size: 4rem;
-  text-align: right;
+  font-size: 10rem;
+  text-align: left;
+  right: 0;
   top: 0;
-  bottom: 0;
   display: flex;
   flex-flow: column wrap;
   margin: 20px 0;
