@@ -1,8 +1,12 @@
 html {
   font-size: 62.5%;
 }
+body {
+  color: $charcoal;
+  line-height: 1.6;
+}
 .header-1 {
-  font-family: $second-font;
+  font-family: $main-font;
   font-weight: 700;
   position: absolute;
   font-size: 10rem;
@@ -12,24 +16,73 @@ html {
   display: flex;
   flex-flow: column wrap;
   margin: 20px 0;
-  color: $charcoal;
   padding: 0;
+  @media (max-width: $first-breakpoint) {
+    font-size: 7rem;
+  }
 }
 .header-2 {
-  font-family: $third-font; 
-  font-size: 8rem; 
+  font-family: $second-font; 
+  font-size: 6rem; 
   font-weight: 400;
   letter-spacing: 1px;
-  line-height: 1.4;
   width: 80%;
   &--center {
     text-align: center;
-    margin: 50px auto;
+  }
+  @media (max-width: $first-breakpoint) {
+    font-size: 4rem;
+  }
+  @media (max-width: $second-breakpoint) {
+    font-size: 3rem;
+    text-align: right;
+  }
+  @media (max-width: $third-breakpoint) {
+    font-size: 2.5rem;
+  }
+  @media (max-width: $third-breakpoint) {
+    font-size: 2rem;
   }
 }
 .option {
   font-size: 5rem;
-  font-family: $second-font;
+  font-family: $main-font;
   text-transform: uppercase;
-  color:$charcoal;
+  color: $charcoal;
+  @media (max-width: $first-breakpoint) {
+    font-size: 3rem;
+  }
+  @media (max-width: $third-breakpoint) {
+    font-size: 2.5rem;
+  }
+  @media (max-width: $third-breakpoint) {
+    font-size: 2rem;
+  }
+}
+.hl {
+  font-weight: 700;
+  font-size: 9rem;
+  line-height: 1.6;
+  font-family: $main-font;
+  @media (max-width: $first-breakpoint) {
+    font-size: 6rem;
+  }
+  @media (max-width: $second-breakpoint) {
+    font-size: 5rem;
+  }
+  @media (max-width: $third-breakpoint) {
+    font-size: 4rem;
+  }
+  @media (max-width: $third-breakpoint) {
+    font-size: 2.5rem;
+  }
+  &--block {
+    display: block;
+  }
+}
+.paragraph--input{
+  font-size: 3rem;
+  @media (max-width: $third-breakpoint) {
+    font-size: 1.5rem;
+  }
 }

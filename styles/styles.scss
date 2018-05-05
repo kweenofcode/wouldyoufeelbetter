@@ -4,20 +4,18 @@
 @import "header";
 
 body {
-  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($gold, 30) 30%), url('../images/old_moon_@2X.jpg');  
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($main-red, 30) 30%), url('../images/old_moon_@2X.jpg');  
 }
-
 .card-wrapper {
   position: relative;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  height: 100vh;
-  max-width: 100vw;
+  max-height: 100vh;
 }
 .card, .question0 {
-  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($gold, 30) 30%), url('../images/old_moon_@2X.jpg');
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($main-red, 30) 30%), url('../images/old_moon_@2X.jpg');
   position: absolute;
   width: 100%;
   z-index: 0;
@@ -27,36 +25,54 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .wrapper {
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
   height: 100vh;
   position: relative;
+  @media (max-width: $first-breakpoint) {
+    max-width: 80%;
+  }
 }
-.main-content {
+.question__content {
   position: relative;
   display: flex;
   width: 100%;
   height: 100vh;
-}
-.main-content {
-  display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 .arrow {
   position: absolute;
   bottom: 0; 
-  opacity: 0.7;
+  opacity: 0.8;  
+  min-width: 250px;
+  @media (max-width: $first-breakpoint) {
+    min-width: 160px;
+  }
+  @media (max-width: $third-breakpoint) {
+    display: none;
+  }
 }
 .arrow-1 {
-  top: 200px;
-  left: 280px;
-  transform: rotateX(180deg); 
+  top: -180px;
+  left: -30px;
+  transform: rotateX(0) rotateY(180deg);
+  @media (max-width: $first-breakpoint) {
+    top: -130px;
+    left: 0px;
+  }
 }
 .arrow-2 {
-  top: -100px;
-  left: -120px;
-  transform: rotateX(0) rotateY(180deg);
+  top: 285px;
+  left: 150px;
+  transform: rotateX(180deg); 
+  @media (max-width: $first-breakpoint) {
+    top: 210px;
+    left: 115px;
+  }
+  @media (max-width: $second-breakpoint) {
+    top: 160px;
+  }
 }
 .options {
   flex: 0 0 25%;
@@ -64,21 +80,44 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 0;
+  &__image {
+    position: relative;
+    background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
+    border-radius: 50%;
+    padding: 40px 0;
+    min-width: 400px;
+    height: 400px;
+    @media (max-width: $first-breakpoint) {
+      top: 0;
+      height: 300px;
+      min-width: 300px;
+      left: 100px;
+    }
+    @media (max-width: $second-breakpoint) {
+      height: 250px;
+      min-width: 250px;
+    }
+    @media (max-width: $third-breakpoint) {
+      min-width: 200px;
+      height: 200px;
+      left: 50px;
+    }
+    @media (max-width: $fourth-breakpoint) {
+      background: none;
+    }
+  }
+  &__results {
+    left: 0;
+  }
+  & img {
+    @media (max-width: $fourth-breakpoint) {
+      display: none;
+    }
+  }
 }
-.options__image {
-  position: absolute;
-  top: 60px;
-  left: 20px;
-  right: 0;
-  z-index: -1;
-  height: 400px;
-  width: 400px; 
-  background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
-  border-radius: 50%;
-  opacity: 0.7;
-}
+
 .questions {
-  flex: 0 0 75%;
+  flex: 0 0 70%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -91,39 +130,100 @@ body {
   position: absolute;
   &__final {
     font-size: 5rem;
-    font-family: $main-font;
+    font-family: $second-font;
     text-align: center;
     bottom: 0;
     margin-top: 50px;
+    @media (max-width: $first-breakpoint) {
+      font-size: 3.5rem;
+      text-align: center;
+    }
+    @media (max-width: $second-breakpoint) {
+      font-size: 3rem;
+    }
+    @media (max-width: $third-breakpoint) {
+      font-size: 2rem;
+    }
+    @media (max-width: $third-breakpoint) {
+      font-size: 1.6rem;
+    }
   }
 }
 .question__option {
   position: absolute;
   margin: 0;
   z-index: 1;
-  padding: 20px;
+  padding: 30px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: $charcoal;
+  transition: all .5s ease-in-out;
+  &:hover {
+    border: 1px solid $blue;
+    background: $blue;
+    color: lighten($main-beige, 10);
+    cursor: url("../images/cursor.cur"), auto;    
+  }
   &--first {
-    left: -210px;
-    top: -100px;
+    left: -170px;
+    top: -210px;
+    @media (max-width: $first-breakpoint) {
+      left: -105px;
+      top: -160px;
+    }
+    @media (max-width: $third-breakpoint) {
+      left: -15px;
+    }
+    @media (max-width: $fourth-breakpoint) {
+      left: 50px;
+    }
   }
   &--second {
-    right: -550px;
-    top: 350px;
+    right: -530px;
+    top: 395px;
+    padding: 30px 35px;
+    @media (max-width: $first-breakpoint) {
+      right: -380px;
+      top: 270px;
+    }
+    @media (max-width: $second-breakpoint) {
+      top: 220px;
+    }
+    @media (max-width: $third-breakpoint) {
+      right: -240px;
+    }
+    @media (max-width: $fourth-breakpoint) {
+      right: -150px;
+      top: 200px;
+    }
   }
   &--third {
-    bottom: -550px;
-    left: -100px;
-    // opacity: 0;
+    top: 395px;
+    left: -170px;
+    border-radius: 0;
+    &:hover {
+      border-radius: 0;
+    }
+    @media (max-width: $first-breakpoint) {
+      left: -105px;
+      top: 270px;
+    }
+    @media (max-width: $second-breakpoint) {
+      top: 220px;
+    }
+    @media (max-width: $third-breakpoint) {
+      left: -15px;
+    }
+    @media (max-width: $fourth-breakpoint) {
+      left: 40px;
+      top: 30px;
+    }
   }
-  &:hover {
-    cursor: url("../images/cursor.cur"), auto;
+  @media (max-width: $third-breakpoint) {
+    border: 1px solid $blue;
+    background: $blue;
+    color: lighten($main-beige, 10);
   }
-}
-.hl {
-  font-weight: 700;
-  font-size: 9rem;
-  line-height: 1.6;
-  font-family: $second-font;
 }
 input[type=radio] {
   display: none;
@@ -132,7 +232,7 @@ input[type=radio] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(125, 79, 80,1);
+  background: lighten($main-red, 20);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -148,18 +248,15 @@ input[type=radio] {
     display: block;
     width: 60%;
     margin: 20px auto;
-    font-family: $second-font;
   }
   &__text {
     border: none;
     padding: 30px 20px;
-    font-size: 3rem;
-    background: $real-gold;
+    background: $main-beige;
   }
   &__submit {
     border: none;
-    background: lighten($gold, 20);
+    background: $main-red;
     padding: 20px 10px;
-    font-size: 3rem;
   }
 }

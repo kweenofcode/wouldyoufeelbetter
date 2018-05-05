@@ -2,30 +2,32 @@ app = {};
 
 // Get user input 
 
+// Create an empty array for all answers
 app.answersArray = [];
+// Gather answers from radio buttons as users click and push to answer array
 app.answer = $('input[type=radio');
 app.getAnswer = function() {
   app.answer.on('click', function () {
     const answer = $('input[type=radio]:checked').val();
     app.answersArray.push(answer);
   });
-  }
-
+}
+// An object for the traits the eventually populate the unordered questions
 app.body = {
   hair: ['facial hair', 'chest hair', 'leg hair', 'back hair'],
   piercings: ['pierced ears', 'pierced nipples'],
   presentation: ['a strong brow', 'painted nails', 'bright lips'],
   physicalTraits: ['broad shoulders', 'long fingers', 'a small waist', 'large feet', 'a flat chest']
 }
-app.ordered = ['Can I only start calling mine a lady waist when it was small','Does growing out my nails mean the creature I’m becoming has claws','Am I  a coward for not shaving my beard and rocking a statement lip',`Is  my body an “other” now`,`Do you expect me to say I “identify” as nonbinary`,'Do you know how long I’ve resented my body for being male','Does my gender have a history now',`Will you tell our friends that I’m nonbinary?`,`Would you notice if I said my name is Ky like it’s the name you’ve always called me`,'Am I coward for not correcting you every time you call me Kyle','Do you worry you don’t know me now','Do you think I’ll change my mind tomorrow','Do you feel hurt that I didn’t tell you sooner','How about I  tell you about the night I sobbed that you wouldn’t love me anymore','Would you believe me if I told you that the day I called it as nonbinary was the first day I actually loved my body']
-
+// Gather the elements to be filled with the unordered questions
 app.hairQuestions = $('.hair');
 app.piercingsQuestions = $('.piercings');
 app.presentationQuestions = $('.presentation');
 app.physicalTraitsQuestions = $('.physicalTraits');
 app.orderedQuestions = $('.orderedQuestion');
-
-// Function to shuffle elements in Array
+// An array that holds the questions from the ordered questions
+app.ordered = [`Can I only call mine a lady waist when it's small`,'Does growing out my nails mean the creature I’m becoming has claws','Am I  a coward for not shaving my beard and rocking a statement lip',`Is  my body an “other” now`,`Do you expect me to say I “identify” as nonbinary`,'Do you know how long I’ve resented my body for being male','Does my gender have a history now',`Will you tell our friends that I’m nonbinary?`,`Would you notice if I said my name is Ky like it’s the name you’ve always called me`,'Am I coward for not correcting you every time you call me Kyle','Do you worry you don’t know me now','Do you think I’ll change my mind tomorrow','Do you feel hurt that I didn’t tell you sooner','How about I  tell you about the night I sobbed that you wouldn’t love me anymore','Would you believe me if I told you that the day I called it as nonbinary was the first day I actually loved my body']
+// Function to shuffle elements in Array using the Fisher Yates method as explained by Mike Bostock: https://bost.ocks.org/mike/shuffle/
 app.shuffle = function(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -37,8 +39,7 @@ app.shuffle = function(array) {
   }
     return array;
   }
-
-  // Function to randomly populate questions onto page.
+  // Function to randomly populate unordered questions onto page.
 app.replaceQuestion = function (object, array) {
   for (i = 0; i < object.length; i++) {
     object[i].innerHTML = `Do they have ${array[i]}?`;
@@ -59,7 +60,7 @@ app.numberQuestions = function(array1, array2) {
     array1[i].classList.add(`question${array2[i]}`);
   }
 }
-// Number the pages
+// Function to number the unordered pages to match the first 15 questions
 app.pageHeadings = [...$('.unordered-header')];
 app.numberPages = function (array, array2) {
   for (i = 0; i < array.length; i++) {
@@ -71,11 +72,10 @@ app.numberPages = function (array, array2) {
   }
 }
 // Function to move between pages
-app.number = 25;
-
+app.number = 0;
 app.movePages = function() {app.answer.on('click', function(){
+  // Function to populate the final page once user completes the final question
   if (app.number === 29){
-    $('.card.question30').html()
     app.positiveAnswers = app.answersArray.reduce(function (allAnswers, answer) {
       if (answer in allAnswers) {
         allAnswers[answer]++;
@@ -88,21 +88,19 @@ app.movePages = function() {app.answer.on('click', function(){
     $('.final-answers').append(`<li class='list__final question'>At some point in my life I have answered negatively to each of these questions in relation to my body</li>`);    
     $('.final-answers').append(`<li class='list__final question'>You are <span class="hl"> ${Math.floor((app.positiveAnswers.yes)/30 * 100)}% </span> kinder than I was to myself in the months before I came out as nonbinary </li>`);    
   }
+  // Function to move between pages 
     $(`.question${app.number}`).css('right', '-100%').hide('');  
     app.number = app.number + 1;
     $(`.question${app.number}`).css('right', '0');
   });
 }
-// Function to replace other 
-// When a user clicks on "other"
-$('#other').on('click', function(e){
-  e.preventDefault();
+// Function to replace other, when a user clicks on "other" the first time
+$('#other').on('click', function(){
   $('.other').css('left',0);
   $('.other').on('submit', function(e){
     e.preventDefault();
     $('label[for=other]').text($('input[type=text]').val());
-    console.log($('label[for=other]').text());
-    $('.other').css('left','100%');
+    $('.other').css('display', 'none');
   });
 });
 
@@ -118,16 +116,5 @@ app.init = function() {
   app.getAnswer();
   app.movePages();
 }
+// Document ready 
 $(app.init);
-
-
-// If user picks "No" provide random question. 
-// If user picks "Yes" compare to "Me" object
-// If matches, ignore
-// If it doesnt match, append to list for results page and add one to total number of differences
-
-// Repeat for first 19 questions
-
-// For queston 20 add "Other"
-// If user picks "Other" produce screen that asks what they mean. On submission of that form change option 3 to whatever they selected. 
-// Give the user the number of times they said Other and what they said when they said it.
