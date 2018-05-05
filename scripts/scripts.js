@@ -40,7 +40,6 @@ app.shuffle = function(array) {
 
   // Function to randomly populate questions onto page.
 app.replaceQuestion = function (object, array) {
-  app.shuffle(array);
   for (i = 0; i < object.length; i++) {
     object[i].innerHTML = `Do they have ${array[i]}?`;
   }
@@ -52,7 +51,7 @@ app.replaceOrderedQuestion = function (object, array) {
   }
 }
 // Function to randomly number the first 15 questions
-app.questionPages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+app.questionPages = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 app.shuffledPages = app.shuffle(app.questionPages);
 app.cards = [...$('.question-card')];
 app.numberQuestions = function(array1, array2) {
@@ -60,25 +59,52 @@ app.numberQuestions = function(array1, array2) {
     array1[i].classList.add(`question${array2[i]}`);
   }
 }
-// Function to number all pages
-app.pageNumbers = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29'];
-app.pageHeadings = [...$('.main-header')];
-app.numberPages = function(array, object) {
+// Number the pages
+app.pageHeadings = [...$('.unordered-header')];
+app.numberPages = function (array, array2) {
   for (i = 0; i < array.length; i++) {
-    object[i].innerHTML= `${array[i]}`;
+    if(array[i] < 10){
+      array2[i].innerHTML = `0${array[i]}`;      
+    } else {    
+      array2[i].innerHTML = `${array[i]}`;
+    }
   }
 }
-// Function to call up next question 
-
-app.number = 0;
+// Function to move between pages
+app.number = 25;
 
 app.movePages = function() {app.answer.on('click', function(){
-    $(`.card.question-card.question${app.number}`).css('right', '-100%');  
+  if (app.number === 29){
+    $('.card.question30').html()
+    app.positiveAnswers = app.answersArray.reduce(function (allAnswers, answer) {
+      if (answer in allAnswers) {
+        allAnswers[answer]++;
+      }
+      else {
+        allAnswers[answer] = 1;
+      }
+      return allAnswers;
+    }, []);
+    $('.final-answers').append(`<li class='list__final question'>At some point in my life I have answered negatively to each of these questions in relation to my body</li>`);    
+    $('.final-answers').append(`<li class='list__final question'>You are <span class="hl"> ${Math.floor((app.positiveAnswers.yes)/30 * 100)}% </span> kinder than I was to myself in the months before I came out as nonbinary </li>`);    
+  }
+    $(`.question${app.number}`).css('right', '-100%').hide('');  
     app.number = app.number + 1;
-    $(`.card.question-card.question${app.number}`).css({'right': 0, 'top':0});
-    console.log(`$('.card.question${app.number}')`);
+    $(`.question${app.number}`).css('right', '0');
   });
 }
+// Function to replace other 
+// When a user clicks on "other"
+$('#other').on('click', function(e){
+  e.preventDefault();
+  $('.other').css('left',0);
+  $('.other').on('submit', function(e){
+    e.preventDefault();
+    $('label[for=other]').text($('input[type=text]').val());
+    console.log($('label[for=other]').text());
+    $('.other').css('left','100%');
+  });
+});
 
 // One function to rule them all
 app.init = function() {
@@ -87,8 +113,8 @@ app.init = function() {
   app.replaceQuestion(app.presentationQuestions, app.body.presentation);
   app.replaceQuestion(app.physicalTraitsQuestions, app.body.physicalTraits);  
   app.replaceOrderedQuestion(app.orderedQuestions, app.ordered);
-  app.numberPages(app.pageNumbers, app.pageHeadings);
   app.numberQuestions(app.cards, app.shuffledPages);
+  app.numberPages(app.shuffledPages, app.pageHeadings);
   app.getAnswer();
   app.movePages();
 }

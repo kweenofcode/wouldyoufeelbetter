@@ -22,6 +22,10 @@ html {
   letter-spacing: 1px;
   line-height: 1.4;
   width: 80%;
+  &--center {
+    text-align: center;
+    margin: 50px auto;
+  }
 }
 .option {
   font-size: 5rem;
