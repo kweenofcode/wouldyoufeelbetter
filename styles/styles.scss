@@ -163,6 +163,12 @@ body {
     background: $blue;
     color: lighten($main-beige, 10);
     cursor: url("../images/cursor.cur"), auto;    
+    @media (max-width: $third-breakpoint) {
+      border: none;
+      background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
+      color: $charcoal;
+      cursor: auto;    
+    }
   }
   &--first {
     left: -170px;
@@ -220,9 +226,9 @@ body {
     }
   }
   @media (max-width: $third-breakpoint) {
-    border: 1px solid $blue;
+    border: none;
     background: $blue;
-    color: lighten($main-beige, 10);
+    background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
   }
 }
 input[type=radio] {
