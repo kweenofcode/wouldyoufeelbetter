@@ -10,6 +10,7 @@ app.getAnswer = function() {
   app.answer.on('click', function () {
     const answer = $('input[type=radio]:checked').val();
     app.answersArray.push(answer);
+    console.log(answer);
   });
 }
 // An object for the traits the eventually populate the unordered questions
@@ -85,8 +86,8 @@ app.movePages = function() {app.answer.on('click', function(){
       }
       return allAnswers;
     }, []);
-    $('.final-answers').append(`<li class='list__final question'>At some point in my life I have answered negatively to each of these questions in relation to my body</li>`);    
-    $('.final-answers').append(`<li class='list__final question'>You are <span class="hl"> ${Math.floor((app.positiveAnswers.yes)/30 * 100)}% </span> kinder than I was to myself in the months before I came out as nonbinary </li>`);    
+    $('.final-answers').append(`<h2 class='list__final question'>At some point in my life I have answered negatively to each of these questions in relation to my body</h2>`);
+    $('.final-answers').append(`<h2 class='list__final question'>You are <span class="hl"> ${Math.floor((app.positiveAnswers.yes + app.positiveAnswers.other)/30 * 100)}% </span> kinder than I was to myself in the months before I came out as nonbinary </h2>`);    
   }
   // Function to move between pages 
     $(`.question${app.number}`).css('right', '-100%').hide('');  
@@ -99,6 +100,7 @@ $('#other').on('click', function(){
   $('.other').css('left',0);
   $('.other').on('submit', function(e){
     e.preventDefault();
+    $('.other__header').text(`What do you mean when you say "${$('label[for=other]').text()}"?`);
     $('label[for=other]').text($('input[type=text]').val());
     $('.other').css('display', 'none');
   });

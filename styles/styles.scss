@@ -4,7 +4,7 @@
 @import "header";
 
 body {
-  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($main-red, 30) 30%), url('../images/old_moon_@2X.jpg');  
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($main-red, 30) 30%), url('../images/old_moon_@2X.jpg');   
 }
 .card-wrapper {
   position: relative;
@@ -134,6 +134,7 @@ body {
     text-align: center;
     bottom: 0;
     margin-top: 50px;
+    font-weight: 400;
     @media (max-width: $first-breakpoint) {
       font-size: 3.5rem;
       text-align: center;
@@ -154,20 +155,20 @@ body {
   margin: 0;
   z-index: 1;
   padding: 30px;
-  border: 1px solid transparent;
+  border: 3px solid $main-red;
   border-radius: 50%;
   color: $charcoal;
+  background: lighten(antiquewhite, 2);
+  cursor: url("../images/cursor.cur"), auto; 
   transition: all .5s ease-in-out;
-  &:hover {
-    border: 1px solid $blue;
-    background: $blue;
-    color: lighten($main-beige, 10);
+  &:hover {      
+    background: $main-red;
+    color: antiquewhite;
     cursor: url("../images/cursor.cur"), auto;    
     @media (max-width: $third-breakpoint) {
-      border: none;
       background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
+      cursor: pointer; 
       color: $charcoal;
-      cursor: auto;    
     }
   }
   &--first {
@@ -226,9 +227,8 @@ body {
     }
   }
   @media (max-width: $third-breakpoint) {
-    border: none;
-    background: $blue;
     background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
+    border: 3px solid $main-red;
   }
 }
 input[type=radio] {
