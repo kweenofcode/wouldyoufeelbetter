@@ -73,7 +73,7 @@ app.numberPages = function (array, array2) {
   }
 }
 // Function to move between pages
-app.number = 26;
+app.number = 0;
 app.movePages = function() {app.answer.on('click', function(){
   // Function to populate the final page once user completes the final question
   if (app.number === 29){
