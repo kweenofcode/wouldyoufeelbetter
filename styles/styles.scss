@@ -1,7 +1,6 @@
 @import "setup";
 @import "utils";
 @import "typography";
-@import "header";
 
 body {
   background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($main-red, 30) 30%), url('../images/old_moon_@2X.jpg');   
