@@ -24,6 +24,12 @@ body {
   right: 100%;
   transition: all 0.5s ease-in-out;
 }
+.list {
+  list-style: none;
+  display: flex;
+  margin: 50px auto;
+  justify-content: space-around;
+}
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
@@ -121,12 +127,12 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  padding: 0 0 0 15%;
   &-final {
     align-items: center;
   }
 }
-.list {
-  list-style: none;
+.form {
   position: absolute;
   &__final {
     font-size: 5rem;
@@ -143,7 +149,7 @@ body {
       font-size: 3rem;
     }
     @media (max-width: $third-breakpoint) {
-      font-size: 2rem;
+      font-size: 2.6rem;
     }
     @media (max-width: $third-breakpoint) {
       font-size: 1.6rem;
@@ -175,11 +181,11 @@ body {
     left: -170px;
     top: -210px;
     @media (max-width: $first-breakpoint) {
-      left: -105px;
+      left: -110px;
       top: -160px;
     }
     @media (max-width: $third-breakpoint) {
-      left: -15px;
+      left: -20px;
     }
     @media (max-width: $fourth-breakpoint) {
       left: 50px;
@@ -190,7 +196,7 @@ body {
     top: 395px;
     padding: 30px 35px;
     @media (max-width: $first-breakpoint) {
-      right: -380px;
+      right: -385px;
       top: 270px;
     }
     @media (max-width: $second-breakpoint) {
@@ -212,14 +218,14 @@ body {
       border-radius: 0;
     }
     @media (max-width: $first-breakpoint) {
-      left: -105px;
+      left: -110px;
       top: 270px;
     }
     @media (max-width: $second-breakpoint) {
       top: 220px;
     }
     @media (max-width: $third-breakpoint) {
-      left: -15px;
+      left: -20px;
     }
     @media (max-width: $fourth-breakpoint) {
       left: 40px;
@@ -229,6 +235,11 @@ body {
   @media (max-width: $third-breakpoint) {
     background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
     border: 3px solid $main-red;
+  }
+}
+.questions-final {
+  @media (max-width: $fourth-breakpoint) {
+    flex: 1 0 100%;
   }
 }
 input[type=radio] {
@@ -265,4 +276,110 @@ input[type=radio] {
     background: $main-red;
     padding: 20px 10px;
   }
+}
+.main-header {
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 50%, lighten($main-red, 30) 50%), url('../images/old_moon_@2X.jpg');       
+  margin: 0;
+  position: absolute;
+  padding: 15px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  width: 100%;  
+  justify-content: center;
+}
+.main-nav {
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 50%, lighten($main-red, 30) 50%), url('../images/old_moon_@2X.jpg');    
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  &__item {
+    background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png'); 
+    border-radius: 50%;   
+    position: relative; 
+    padding: 30px 10px;
+    margin: 10px;
+    @media(max-height: 700px) and (max-width: $third-breakpoint) {
+      background: none;
+    }
+    & img {
+    @media(max-height: 700px) and (max-width: $third-breakpoint) {
+      display: none;
+    }
+    }
+    @media (max-width: $third-breakpoint) {
+        max-width: 320px;
+    }
+    &:first-child(){
+      @media (max-width: $third-breakpoint) {
+        max-width: 320px;
+        margin-top: 150px;
+      }
+    }
+  }
+  &__title {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (max-width: $third-breakpoint) {
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background: rgba(125,79,80,0.8);
+      border-radius: 50%;
+      padding: 40px 20px;
+    }
+  }
+  @media (max-width: $third-breakpoint) {
+    flex-direction: column;
+    flex: 1 0 200px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.about__article {
+    background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png'); 
+    padding: 50px 100px;  
+    border: 4px solid $main-red;
+    margin: 50px 0;
+    @media (max-width: $third-breakpoint) {
+      padding: 50px;
+    }
+    @media (max-width: $third-breakpoint) {
+      padding: 50px 50px;
+    }
+}
+.article__title {
+  margin: 30px 0;
+}
+.about__header {
+  padding: 50px 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 90%;
+  bottom: 0;
+  width: 100%;
+}
+.button {
+  text-decoration: none;
+  background: $main-red;
+  padding: 20px 50px;
+  color: lighten($main-beige, 10);
+  margin-bottom: 50px;
+  transition: all .3s ease-in-out;
+  &:hover {
+    color: $main-red;
+    background: lighten($main-red, 20);
+  }
+  @media (max-width: $fourth-breakpoint) {
+    padding: 10px 20px;
+  }
+}
+.final-nav{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

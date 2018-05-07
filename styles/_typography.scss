@@ -26,9 +26,11 @@ body {
   font-size: 6rem; 
   font-weight: 400;
   letter-spacing: 1px;
-  width: 80%;
   color: darken($charcoal, 10);
   &--center {
+    text-align: center;
+  }
+  &--title {
     text-align: center;
   }
   @media (max-width: $first-breakpoint) {
@@ -42,6 +44,23 @@ body {
     font-size: 2.5rem;
     text-align: center;
   }
+  &--small {
+    font-size: 3rem;
+    writing-mode: vertical-lr;
+  }
+  &--final {
+    font-size: 3rem;
+    @media (max-width: $third-breakpoint) {
+      font-size: 2rem;
+    }
+    @media (max-width: $third-breakpoint) {
+      font-size: 1.5rem;
+      width: 100%;
+    }
+  }
+}
+.header-3 {
+  font-size: 2rem;
 }
 .option {
   font-size: 5rem;
@@ -84,4 +103,14 @@ body {
   @media (max-width: $third-breakpoint) {
     font-size: 1.5rem;
   }
+}
+.paragraph {
+  color: darken($charcoal, 10);
+  font-size: 1.9rem;
+  line-height: 1.8;
+}
+.button__text {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }

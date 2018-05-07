@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>About</title>
+  <link href="https://fonts.googleapis.com/css?family=Alice|Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main-card">
+      <h2 class="header-2 about__header header-2--small">would you feel better if I wore a dress?</h2>
+    </div>
+    <article class="about__article">
+      <h3 class="header-3 article__title">About the Project</h3>
+      <p class="paragraph">I try to make it look casual as I flip through the Value Village dress rack, but I keep my music low and take detailed mental
+      notes of the shoppers closest to me. Most leave me alone. One passing woman laughs as I measure a red tunic-style dress against
+      my body, and tells me how “cute” she bets I would look in it. I laugh along, even thanking her loudly enough for anyone listening
+      to hear. I’m safer if people assume I’m buying this dress as a joke. I’m taken with considering the length of a blue and
+      white cocktail dress so I don’t hear the exchange between the mean-looking woman who bustles past me and the elderly woman
+      still feeling for the quality of a nightgown by rubbing it between her thumb and index finger. I only turn in their direction
+      because of how loudly the third, kind-looking woman, gasps and clicks her tongue. The elderly woman is clearly shook by her
+      interaction with the mean-looking woman. I try to read the situation to know if I should ask the elderly woman if she’s alright.
+      I start with sympathetic eye contact, and find her looking back with pure disgust on her face, and I know that later, when
+      she tells this story to whoever it is in her life she tells these stories to, she will complain about the “man” too busy
+      browsing dresses to be of any help in this situation.</p>
+      <p class="paragraph">I was shopping for a dress for a presentation I’d eventually give about this project to my classmates and instructors. This
+      project is my third for the full-time front end web development bootcamp I’m enrolled in at HackerYou. It was only days before
+      I’d started the program that I’d officially adopted a nonbinary identity, and started to go exclusively by Ky. Believe me
+      when I say it felt ridiculous, at 29 years old, to finally contend with my gender identity. That’s why there are 29 questions
+      in this project. Each is an honest question that I’ve struggled to answer at one point or another.</p>
+      <p class="paragraph"> I had assumed, at 14, when I’d first realized I was queer, that I was done with coming out. That’s why the first 14 questions
+      only offer “yes” or “no” options for what a nonbinary body looks like. Plus, at the risk of being heavy-handed, yes and no
+      are a binary. At question 15, things get muddier and I introduce an option for “other” because it was somewhere age 15 that
+      I first realized that there were other options for gender identities. Part-way through this project I officially listed my
+      gender as “other” on a form, and it brought up a lot of complicated feelings, so I added in a functionality that allows the
+      user to redefine ‘other’ on their own terms.</p>
+      <p class="paragraph">The first time I admitted to anyone that I wasn’t cisgender was the afternoon I asked Google, “how do I know if I’m nonbinary?”.
+      Google had no helpful answers. That night I drunkenly asked a friend if they’d ever questioned their own gender identity.
+      They kindly pointed out that I was asking when maybe what I really wanted to do was tell them something. So, I told them
+      how I’d never been male, but didn’t a body like mine could be anything else. The next morning, for the first time in my life,
+      I looked at my body in the mirror and didn’t dissect it into male parts and female parts, instead I appreciated it on its
+      own merits.. For 29 years I had resented my body for being too male in places, and too female in others. I had spent 29 years
+      thinking that questioning my gender identity meant hating my body, when, in fact, adopting a non-binary identity has helped
+      me learn to love my body.</p>
+      <p class="paragraph">In no way do I want to claim that my experience is typical of all nonbinary people. For a long time I was convinced I couldn’t
+      question my gender identity without wanting to change my body. I couldn’t believe a body like mine could belong to a nonbinary
+      person.</p>
+      <h3 class="header-3">HOW IT WORKS</h3>
+      <p class="paragraph">The whole project is built using a combination of vanilla JavaScript and jQuery (which is a JavaScript library). There are 32 sections that I’ve called “cards” in total. There are 29 cards for the 29 questions, 1 for the intro page, 1 for the results page, and 1 that allows the user to change the value of “Other”.</p>
+      <p class="paragraph">When the user loads the project, the introductory question is positioned so it covers the currently blank results page. The 29 questions are all positioned so they’re stacked just outside of the window (with a ‘right’ value of ‘100%’). The first 14 questions are blank except for the illustration, the background, and the ‘yes’ or ‘no’ options.</p>
+      <p class="paragraph">Each of the traits asked about on the first 14 cards is stored in an object that splits them up into ‘Hair’, ‘Piercing’, ‘Presentation’, and ‘Physical Traits’. Once the page has loaded a function loops through this object and places each of these traits into a sentence (a string) that reads “Do they have _____?”. Each of these strings is then placed onto the first 14 cards.</p>
+      <p class="paragraph">Once this has been done, I used the Fisher Yates shuffle to shuffle the numbers 1 through 14 (all contained within an array). Once they’ve been shuffled each of the cards containing one of the first 14 questions is assigned one of these shuffled numbers as a page number and also as a corresponding class. So if the first card is assigned page number 12, it would also be assigned the class of “question12”.</p>
+      <p class="paragraph">Now that this is set up a user can begin answering the questions. I created a counter to ensure the user sees the shuffled questions in numerical order. At the beginning the counter is set to 0, and every time the user clicks on either “yes” or “no” the the current card is moved to 100% to the right, one is added to the counter, and the card with a class of “question (whatever the current value of the counter is)”, is then given a right value of 0 so it’s on the user’s screen. So if the user is currently question 10, the card they’re seeing will have a class of “question10” and the counter value will be 10. Once the user clicks either yes or no, that card moves back off the page, the value of the counter increases to 11, and the card with a class of “question11” is brought onto the screen.</p>
+      <p class="paragraph">The order of the final 15 questions was important to me, so I stored all the questions in an array that populates each of the remaining cards once the page has finished loading. (Storing them in an array makes it a bit easier for me to edit them, and also switch around their order should I need to). These questions also introduce the “other” option. The first time a user selects “other” an HTML form that has been positioned off to the left of the screen is brought on. The form requires a user to define “other” for themselves in 20 characters or less (using an input[type=text]).. Once they click the “submit” button (given a value of “Choose Your Words”), a function runs that replace the word “other” on the remaining pages (using a .text() method on the labels for the “other”radio button) with whatever the information the user typed in (using the .val() method) . Once this has been done once, the form is set to “display: none” (using the .css() method) so that the form will only ever appear once.</p>
+      <p class="paragraph">The final step is to populate the results page with the percentage of times a user answered positively to a question. I started by setting up a function so that each time a user answers a question that value is pushed into an empty array where it’s stored until the end. This got tricky when I got to the ordered questions where sometimes the positive answer would actually be “no” and I couldn’t account for what a user might mean when they answer “other”. I decided that any time a user picked “other”, it would be catalogued as a positive answer. Once the user answers the final question, a function runs that calculates tallies the number of positive answers, divides that by the number of total questions, and multiplies the answer by 100 to get a percentage. The function uses a method from the JavaScript Math library to always round this number to a whole integer. The results then populate the last screen.</p>
+    </article>
+    <nav>
+      <ul class="list">
+        <li><a class="button button__text" href="./index.html">Home</a></li>
+        <li><a class="button button__text" href="./questions.html">Project</a></li>
+      </ul>
+    </nav>
+  </div>
+</body>
+</html>

@@ -27,7 +27,7 @@ app.presentationQuestions = $('.presentation');
 app.physicalTraitsQuestions = $('.physicalTraits');
 app.orderedQuestions = $('.orderedQuestion');
 // An array that holds the questions from the ordered questions
-app.ordered = [`Can I only call mine a lady waist when it's small`,'Does growing out my nails mean the creature I’m becoming has claws','Am I  a coward for not shaving my beard and rocking a statement lip',`Is  my body an “other” now`,`Do you expect me to say I “identify” as nonbinary`,'Do you know how long I’ve resented my body for being male','Does my gender have a history now',`Will you tell our friends that I’m nonbinary?`,`Would you notice if I said my name is Ky like it’s the name you’ve always called me`,'Am I coward for not correcting you every time you call me Kyle','Do you worry you don’t know me now','Do you think I’ll change my mind tomorrow','Do you feel hurt that I didn’t tell you sooner','How about I  tell you about the night I sobbed that you wouldn’t love me anymore','Would you believe me if I told you that the day I called it as nonbinary was the first day I actually loved my body']
+app.ordered = [`Can I only call mine a lady waist when it's small`,'Does growing out my nails mean the creature I’m becoming has claws','Am I  a coward for not shaving my beard and rocking a statement lip',`Is  my body an “other” now`,`Do you expect me to say I “identify” as nonbinary`,'Do you know how long I’ve resented my body for being male','Does my gender have a history now',`Will you tell our friends that I’m nonbinary?`,`Would you notice if I said my name is Ky like it’s the name you’ve always called me`,'Am I coward for not correcting you every time you call me Kyle','Do you worry you don’t know me now','Do you think I’ll change my mind tomorrow','Do you feel hurt that I didn’t tell you sooner','How about I  tell you about the night I sobbed that you wouldn’t love me anymore',`Would you believe that I didn't love my body until I called it non-binary`]
 // Function to shuffle elements in Array using the Fisher Yates method as explained by Mike Bostock: https://bost.ocks.org/mike/shuffle/
 app.shuffle = function(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
@@ -86,8 +86,8 @@ app.movePages = function() {app.answer.on('click', function(){
       }
       return allAnswers;
     }, []);
-    $('.final-answers').append(`<h2 class='list__final question'>At some point in my life I have answered negatively to each of these questions in relation to my body</h2>`);
-    $('.final-answers').append(`<h2 class='list__final question'>You are <span class="hl"> ${Math.floor((app.positiveAnswers.yes + app.positiveAnswers.other)/30 * 100)}% </span> kinder than I was to myself in the months before I came out as nonbinary </h2>`);    
+    $('.final-answers').append(`<h2 class='form__final question'>At some point in my life I have answered negatively to each of these questions in relation to my body</h2>`);
+    $('.final-answers').append(`<h2 class='form__final question'>You are <span class="hl"> ${Math.ceil((app.positiveAnswers.yes + app.positiveAnswers.other)/30 * 100)}% </span> kinder than I was to myself in the months before I came out as nonbinary </h2>`);    
   }
   // Function to move between pages 
     $(`.question${app.number}`).css('right', '-100%').hide('');  
