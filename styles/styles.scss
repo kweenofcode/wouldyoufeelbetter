@@ -5,13 +5,130 @@
 body {
   background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($main-red, 30) 30%), url('../images/old_moon_@2X.jpg');   
 }
-.card-wrapper {
+.wrapper {
+  height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
   position: relative;
-  top: 0;
+  @media (max-width: $first-breakpoint) {
+    max-width: 80%;
+  }
+}
+// HOME PAGE STYLES
+.about__header {
   bottom: 0;
+  left: 90%;
+  padding: 50px 0;
+  position: fixed;
   right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.main-header {
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 50%, lighten($main-red, 30) 50%), url('../images/old_moon_@2X.jpg');       
+  display: flex;
+  justify-content: center;
+  left: 0;
+  margin: 0;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;  
+}
+.main-nav {
+  align-items: center;
+  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 50%, lighten($main-red, 30) 50%), url('../images/old_moon_@2X.jpg');    
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  &__item {
+    background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png'); 
+    border-radius: 50%;   
+    margin: 10px;
+    padding: 30px 10px;
+    position: relative;
+    &:hover {
+    animation: pulse 1s infinite; 
+    }
+    @media(max-height: 700px) and (max-width: $third-breakpoint) {
+      background: none;
+    }
+    & img {
+    @media(max-height: 700px) and (max-width: $third-breakpoint) {
+      display: none;
+    }
+    }
+    @media (max-width: $third-breakpoint) {
+        max-width: 320px;
+    }
+    &:first-child(){
+      @media (max-width: $third-breakpoint) {
+        margin-top: 150px;
+        max-width: 320px;
+      }
+    }
+  }
+  &__title {
+    left: 50%;
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%);
+    @media (max-width: $third-breakpoint) {
+      background: rgba(125,79,80,0.8);
+      border-radius: 50%;
+      padding: 40px 20px;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+  @media (max-width: $third-breakpoint) {
+    align-items: center;
+    flex: 1 0 200px;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+// ABOUT PAGE STYLES
+.about__article {
+  background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png'); 
+  border: 4px solid $main-red;
+  margin: 50px 0;
+  padding: 50px 100px;  
+  @media (max-width: $third-breakpoint) {
+    padding: 50px;
+  }
+  @media (max-width: $third-breakpoint) {
+    padding: 50px 50px;
+  }
+}
+.button {
+  background: $main-red;
+  color: lighten($main-beige, 10);
+  margin-bottom: 50px;
+  padding: 20px 50px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  &:hover {
+    background: lighten($main-red, 20);
+    color: $main-red;
+  }
+  @media (max-width: $fourth-breakpoint) {
+    padding: 10px 20px;
+  }
+}
+.article__title {
+  margin: 30px 0;
+}
+// PROJECT PAGE STYLES
+.card-wrapper {
+  bottom: 0;
   left: 0;
   max-height: 100vh;
+  position: relative;
+  right: 0;
+  top: 0;
 }
 .card, .question0 {
   background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 30%, lighten($main-red, 30) 30%), url('../images/old_moon_@2X.jpg');
@@ -24,32 +141,23 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .list {
-  list-style: none;
   display: flex;
-  margin: 50px auto;
   justify-content: space-around;
-}
-.wrapper {
-  max-width: 1400px;
-  margin: 0 auto;
-  height: 100vh;
-  position: relative;
-  @media (max-width: $first-breakpoint) {
-    max-width: 80%;
-  }
+  list-style: none;
+  margin: 50px auto;
 }
 .question__content {
-  position: relative;
+  align-items: center;
   display: flex;
-  width: 100%;
   height: 100vh;
   justify-content: flex-end;
-  align-items: center;
+  position: relative;
+  width: 100%;
 }
 .arrow {
-  position: absolute;
   bottom: 0; 
   opacity: 0.8;  
+  position: absolute;
   min-width: 250px;
   @media (max-width: $first-breakpoint) {
     min-width: 160px;
@@ -59,53 +167,53 @@ body {
   }
 }
 .arrow-1 {
-  top: -180px;
   left: -30px;
+  top: -180px;
   transform: rotateX(0) rotateY(180deg);
   @media (max-width: $first-breakpoint) {
-    top: -130px;
     left: 0px;
+    top: -130px;
   }
 }
 .arrow-2 {
-  top: 285px;
   left: 150px;
+  top: 285px;
   transform: rotateX(180deg); 
   @media (max-width: $first-breakpoint) {
-    top: 210px;
     left: 115px;
+    top: 210px;
   }
   @media (max-width: $second-breakpoint) {
     top: 160px;
   }
 }
 .options {
-  flex: 0 0 25%;
-  position: relative;
   display: flex;
+  flex: 0 0 25%;
   flex-direction: column;
+  position: relative;
   z-index: 0;
   &__image {
-    position: relative;
     background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
     border-radius: 50%;
-    padding: 40px 0;
-    min-width: 400px;
     height: 400px;
+    min-width: 400px;
+    padding: 40px 0;
+    position: relative;
     @media (max-width: $first-breakpoint) {
-      top: 0;
+      left: 100px;
       height: 300px;
       min-width: 300px;
-      left: 100px;
+      top: 0;
     }
     @media (max-width: $second-breakpoint) {
       height: 250px;
       min-width: 250px;
     }
     @media (max-width: $third-breakpoint) {
-      min-width: 200px;
       height: 200px;
       left: 50px;
+      min-width: 200px;
     }
     @media (max-width: $fourth-breakpoint) {
       background: none;
@@ -120,12 +228,11 @@ body {
     }
   }
 }
-
 .questions {
-  flex: 0 0 70%;
-  display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
+  display: flex;
+  flex: 0 0 70%;
+  justify-content: flex-end;
   padding: 0 0 0 15%;
   &-final {
     align-items: center;
@@ -134,12 +241,12 @@ body {
 .form {
   position: absolute;
   &__final {
-    font-size: 5rem;
-    font-family: $second-font;
-    text-align: center;
     bottom: 0;
-    margin-top: 50px;
+    font-family: $second-font;
+    font-size: 5rem;
     font-weight: 400;
+    margin-top: 50px;
+    text-align: center;
     @media (max-width: $first-breakpoint) {
       font-size: 3.5rem;
       text-align: center;
@@ -156,24 +263,25 @@ body {
   }
 }
 .question__option {
-  position: absolute;
-  margin: 0;
-  z-index: 1;
-  padding: 30px;
+  background: lighten(antiquewhite, 2);
   border: 3px solid $main-red;
   border-radius: 50%;
   color: $charcoal;
-  background: lighten(antiquewhite, 2);
+  margin: 0;
+  padding: 30px;
+  position: absolute;
+  z-index: 1;
   cursor: url("../images/cursor.cur"), auto; 
   transition: all .5s ease-in-out;
   &:hover {      
     background: $main-red;
     color: antiquewhite;
-    cursor: url("../images/cursor.cur"), auto;    
+    cursor: url("../images/cursor.cur"), auto;   
+    animation: pulse 1s infinite;  
     @media (max-width: $third-breakpoint) {
       background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png');
-      cursor: pointer; 
       color: $charcoal;
+      cursor: pointer; 
     }
   }
   &--first {
@@ -191,9 +299,9 @@ body {
     }
   }
   &--second {
+    padding: 30px 35px;
     right: -530px;
     top: 395px;
-    padding: 30px 35px;
     @media (max-width: $first-breakpoint) {
       right: -385px;
       top: 270px;
@@ -210,9 +318,9 @@ body {
     }
   }
   &--third {
-    top: 395px;
-    left: -170px;
     border-radius: 0;
+    left: -170px;
+    top: 395px;
     &:hover {
       border-radius: 0;
     }
@@ -245,16 +353,15 @@ input[type=radio] {
   display: none;
 }
 .other {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  background: lighten($main-red, 20);
-  position: fixed;
-  top: 0;
   bottom: 0;
-  right: 0;
-  left: 0;
+  background: lighten($main-red, 20);
+  display: flex;
+  justify-content: center;
   left: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
   &__form {
     display: flex;
     flex-flow: column wrap;
@@ -262,123 +369,36 @@ input[type=radio] {
   }
   &__text, &__submit, &__header {
     display: block;
-    width: 60%;
     margin: 20px auto;
+    width: 60%;
   }
   &__text {
+    background: $main-beige;
     border: none;
     padding: 30px 20px;
-    background: $main-beige;
   }
   &__submit {
-    border: none;
     background: $main-red;
+    border: none;
     padding: 20px 10px;
   }
 }
-.main-header {
-  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 50%, lighten($main-red, 30) 50%), url('../images/old_moon_@2X.jpg');       
-  margin: 0;
-  position: absolute;
-  padding: 15px;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  width: 100%;  
-  justify-content: center;
-}
-.main-nav {
-  background-image: linear-gradient(to right, rgba(125, 79, 80,0.5) 50%, lighten($main-red, 30) 50%), url('../images/old_moon_@2X.jpg');    
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
-  &__item {
-    background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png'); 
-    border-radius: 50%;   
-    position: relative; 
-    padding: 30px 10px;
-    margin: 10px;
-    @media(max-height: 700px) and (max-width: $third-breakpoint) {
-      background: none;
-    }
-    & img {
-    @media(max-height: 700px) and (max-width: $third-breakpoint) {
-      display: none;
-    }
-    }
-    @media (max-width: $third-breakpoint) {
-        max-width: 320px;
-    }
-    &:first-child(){
-      @media (max-width: $third-breakpoint) {
-        max-width: 320px;
-        margin-top: 150px;
-      }
-    }
-  }
-  &__title {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    @media (max-width: $third-breakpoint) {
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      background: rgba(125,79,80,0.8);
-      border-radius: 50%;
-      padding: 40px 20px;
-    }
-  }
-  @media (max-width: $third-breakpoint) {
-    flex-direction: column;
-    flex: 1 0 200px;
-    justify-content: center;
-    align-items: center;
-  }
-}
-.about__article {
-    background-image: linear-gradient(to right, rgba(232,217,150,0.3), rgba(232,217,150,0.3)), url('../images/paper_@2X.png'); 
-    padding: 50px 100px;  
-    border: 4px solid $main-red;
-    margin: 50px 0;
-    @media (max-width: $third-breakpoint) {
-      padding: 50px;
-    }
-    @media (max-width: $third-breakpoint) {
-      padding: 50px 50px;
-    }
-}
-.article__title {
-  margin: 30px 0;
-}
-.about__header {
-  padding: 50px 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  left: 90%;
-  bottom: 0;
-  width: 100%;
-}
-.button {
-  text-decoration: none;
-  background: $main-red;
-  padding: 20px 50px;
-  color: lighten($main-beige, 10);
-  margin-bottom: 50px;
-  transition: all .3s ease-in-out;
-  &:hover {
-    color: $main-red;
-    background: lighten($main-red, 20);
-  }
-  @media (max-width: $fourth-breakpoint) {
-    padding: 10px 20px;
-  }
-}
 .final-nav{
-  position: absolute;
   bottom: 0;
+  position: absolute;
   width: 100%;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 $main-red;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 5px $main-red;   
+    transform: scale(1.01);     
+  }
+  100% {
+    box-shadow: 0 0 0 0 $main-red;
+    transform: scale(1);    
+  }
 }

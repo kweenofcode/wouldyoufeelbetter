@@ -60,7 +60,11 @@ body {
   }
 }
 .header-3 {
-  font-size: 2rem;
+  font-size: 6rem;
+  font-family: $second-font;
+  @media (max-width: $first-breakpoint) {
+    font-size: 4rem;
+  } 
 }
 .option {
   font-size: 5rem;
@@ -97,6 +101,12 @@ body {
   &--block {
     display: block;
   }
+  &--small {
+    font-size: 7rem;
+    @media (max-width: $first-breakpoint) {
+    font-size: 5rem;
+    } 
+  }
 }
 .paragraph--input{
   font-size: 3rem;
@@ -106,8 +116,11 @@ body {
 }
 .paragraph {
   color: darken($charcoal, 10);
-  font-size: 1.9rem;
+  font-size: 2rem;
   line-height: 1.8;
+  @media (max-width: $first-breakpoint) {
+    font-size: 1.7rem;
+  }
 }
 .button__text {
   font-size: 1.6rem;

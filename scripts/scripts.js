@@ -1,7 +1,7 @@
+// Creating an empty object to hold all my data
 app = {};
 
 // Get user input 
-
 // Create an empty array for all answers
 app.answersArray = [];
 // Gather answers from radio buttons as users click and push to answer array
@@ -15,9 +15,9 @@ app.getAnswer = function() {
 }
 // An object for the traits the eventually populate the unordered questions
 app.body = {
-  hair: ['facial hair', 'chest hair', 'leg hair', 'back hair'],
-  piercings: ['pierced ears', 'pierced nipples'],
-  presentation: ['a strong brow', 'painted nails', 'bright lips'],
+  hair: ['a beard', 'a hairy chest', 'hairy legs', 'a hairy back'],
+  piercings: ['pierced ears', 'dangly earrings'],
+  presentation: ['brightly painted eyes', 'brightly painted nails', 'brightly painted lips'],
   physicalTraits: ['broad shoulders', 'long fingers', 'a small waist', 'large feet', 'a flat chest']
 }
 // Gather the elements to be filled with the unordered questions
@@ -27,7 +27,7 @@ app.presentationQuestions = $('.presentation');
 app.physicalTraitsQuestions = $('.physicalTraits');
 app.orderedQuestions = $('.orderedQuestion');
 // An array that holds the questions from the ordered questions
-app.ordered = [`Can I only call mine a lady waist when it's small`,'Does growing out my nails mean the creature I’m becoming has claws','Am I  a coward for not shaving my beard and rocking a statement lip',`Is  my body an “other” now`,`Do you expect me to say I “identify” as nonbinary`,'Do you know how long I’ve resented my body for being male','Does my gender have a history now',`Will you tell our friends that I’m nonbinary?`,`Would you notice if I said my name is Ky like it’s the name you’ve always called me`,'Am I coward for not correcting you every time you call me Kyle','Do you worry you don’t know me now','Do you think I’ll change my mind tomorrow','Do you feel hurt that I didn’t tell you sooner','How about I  tell you about the night I sobbed that you wouldn’t love me anymore',`Would you believe that I didn't love my body until I called it non-binary`]
+app.ordered = [`Can I only call my waist a "lady waist" when it's small`,'Does growing out my nails mean the creature I’m becoming has claws','Am I  a coward for not shaving my beard, my back, my chest, and my legs',`Is  my body an “other” now`,`Do you expect me to say I “identify” as nonbinary`,'Do you know how long I’ve resented my body for being male','Does my gender have a history now',`Will you tell our friends that I’m nonbinary`,`Would you notice if I said "my name is Ky" like it’s the name you’ve always called me`,'Am I coward for not correcting you every time you call me Kyle','Do you worry you don’t know me anymore','Do you think I might change my mind','Do you feel hurt that I didn’t tell you sooner','Should I  tell you about the night I sobbed that you wouldn’t love me anymore',`Would you believe that I didn't love my body until I understood it as nonbinary`]
 // Function to shuffle elements in Array using the Fisher Yates method as explained by Mike Bostock: https://bost.ocks.org/mike/shuffle/
 app.shuffle = function(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
@@ -73,7 +73,7 @@ app.numberPages = function (array, array2) {
   }
 }
 // Function to move between pages
-app.number = 0;
+app.number = 26;
 app.movePages = function() {app.answer.on('click', function(){
   // Function to populate the final page once user completes the final question
   if (app.number === 29){
